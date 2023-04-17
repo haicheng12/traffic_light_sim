@@ -7,7 +7,24 @@
 工作记录：
 ——2023.4.17
 1、代码重新整理
+2、提取红绿灯的位置参数出来，可设置红绿灯的有效半径范围
+3、autoware.ai的twist_filter.cpp文件有更改，配合红绿灯使用
+4、修改的文件和地图数据放在other_file
 ```
+**整体功能**
+
+基于autoware仿真，键盘按下'r'为绿灯，小车前进，键盘按下'g'为红灯，并且红灯在设定范围内，小车停止。
+
+<launch>
+
+  <param name="traffic_light_1_pose_x" type="double" value="75.0" /> <!--1号红绿灯的x位置，单位：米-->
+  <param name="traffic_light_1_pose_y" type="double" value="-58.0" /> <!--1号红绿灯的y位置，单位：米-->
+  <param name="traffic_light_2_pose_x" type="double" value="76.0" /> <!--2号红绿灯的x位置，单位：米-->
+  <param name="traffic_light_2_pose_y" type="double" value="-57.0" /> <!--2号红绿灯的y位置，单位：米-->
+  <param name="traffic_light_radius" type="double" value="30.0" /> <!--红绿灯的半径，小车在这个范围内停车，单位：米-->
+  <node name="traffic_light" pkg="traffic_light" type="traffic_light" output="screen"/>
+
+</launch>
 
 **下载autoware.ai依赖环境**
 ```
@@ -45,6 +62,7 @@ rosrun runtime_manager runtime_manager_dialog.py
 ```
 
 **autoware花屏问题**
+
 去下载wxPython-4.0.7.post2-cp27-cp27mu-linux_x86_64.whl
 ```
 https://extras.wxpython.org/wxPython4/extras/linux/gtk2/ubuntu-18.04/
