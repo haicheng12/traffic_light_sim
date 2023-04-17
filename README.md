@@ -68,3 +68,7 @@ sudo pip install wxPython-4.0.7.post2-cp27-cp27mu-linux_x86_64.whl
 
 详情参考doc文件夹里面的文档
 
+**RVIZ效果**
+
+![Image text](https://github.com/haicheng12/traffic_light_sim/blob/main/img/sim.png)
+
