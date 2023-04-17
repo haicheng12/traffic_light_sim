@@ -64,7 +64,7 @@ namespace TrafficLightNS
       std::cout << buf << std::endl;
 
       // 给颜色
-      if (strcmp(buf, red_data) == 0)
+      if (strcmp(buf, red_data) == 0 && is_in_traffic_light_)
       {
         printf("显示红灯\n");
         traffic_light_.color.a = 1.0; // 红色
@@ -77,11 +77,11 @@ namespace TrafficLightNS
         traffic_light2_.color.g = 0.0;
         traffic_light2_.color.b = 0.0;
 
-	if(is_in_traffic_light_) // 为红色并且小车在红绿灯范围内
-        {
+	//if(is_in_traffic_light_) // 为红色并且小车在红绿灯范围内
+        //{
 	    printf("小车在红灯范围内，小车停止\n");
             traffic_light_msg_.data = 1; // 红灯为1
-	}
+	//}
       }
       else if (strcmp(buf, green_data) == 0) 
       {
@@ -96,11 +96,11 @@ namespace TrafficLightNS
         traffic_light2_.color.g = 1.0;
         traffic_light2_.color.b = 0.0;
 
-	if(!is_in_traffic_light_)// 为绿色并且小车不在红绿灯范围内
-	{
+	//if(!is_in_traffic_light_)// 为绿色并且小车不在红绿灯范围内
+	//{
 	    printf("小车在绿灯范围内，小车前进\n");
             traffic_light_msg_.data = 2; // 绿灯为2
-	}
+	//}
       }
       else
       {
